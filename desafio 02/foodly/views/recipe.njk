@@ -1,0 +1,46 @@
+{% extends "layout.njk" %}
+
+    {% block content %}
+        <div class="conteiner">
+            <div class="revenue-infos">
+                <div class="revenue-picture">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                </div>
+                <div class="revenue-description">
+                    <h1>{{recipe.title}}</h1>
+                    <p>{{recipe.author}}</p>
+                </div>    
+            </div>
+            <div class="ingredients">
+                <div class="row">
+                    <h1>Ingredientes</h1>
+                    <a class="showItems" onclick="showIngredients()">Mostrar</a>
+                </div>
+                <ul class="itemDisabled">
+                    {% for ingredient in recipe.ingredients %}
+                        <li>{{ingredient}};</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="preparation-mode">
+                <div class="row">
+                    <h1>Modo de preparo</h1>
+                    <a class="showItems" onclick="showPreparationMode()">Mostrar</a>
+                </div>
+                <div id="recipe-preparation" class="itemDisabled">
+                    {% for item in recipe.preparation %}
+                        <p>{{item}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="additional-informations">
+                <div class="row">
+                     <h1>Informações adicionais</h1>
+                    <a class="showItems" onclick="showAdditionalInformations()">Mostrar</a>
+                </div>
+                <div id="information" class="itemDisabled">
+                    <p>{{recipe.information}}</p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

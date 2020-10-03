@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+    {% block head%}
+        <title>Foodly - Receitas</title>
+    {% endblock %}
+
+    {% block content %} 
+        <div class="container">
+            <div class="wrapper">
+                <div class="cards">
+                    {% for recipe in recipes %}
+                        <div class="card" id="{{loop.index0}}">
+                            <img src="{{recipe.image}}" alt="{{recipe.title}}" class="card-image">
+                            <h1 class="card-title">{{recipe.title}}</h1>
+                            <p class="card-description">por {{recipe.author}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
